@@ -23,16 +23,6 @@ class ControllerKaryawan extends Controller
     
     public function form()
     {
-
-        // iki semisal koe mari update file 
-        // iku kan muncul file seng mari kok rubah 
-        // gari git add nama file -  ketika file seng mok edit akeh dan pingin mok add kabeh nggwe git add .
-        // dadi flowne :
-        // git add ./filename
-        // git commit -m "message(iki bebas)"
-        // git push origin master
-
-        //asdasdasd
         $data['karyawan'] = Karyawan::all();
         $data['page'] = 'Form';
         return view('karyawan.form', $data);
