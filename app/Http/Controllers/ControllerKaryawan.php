@@ -31,6 +31,8 @@ class ControllerKaryawan extends Controller
         // git add ./filename
         // git commit -m "message(iki bebas)"
         // git push origin master
+
+        //asdasdasd
         $data['karyawan'] = Karyawan::all();
         $data['page'] = 'Form';
         return view('karyawan.form', $data);
