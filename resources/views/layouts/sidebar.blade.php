@@ -40,14 +40,14 @@
     <!-- begin sidebar nav -->
     <ul class="nav">
       <li class="nav-header">Navigation</li>
-      <li class="has-sub active">
+      <li class="has-sub">
         <a href="javascript:;">
           <b class="caret"></b>
           <i class="fa fa-th-large"></i>
           <span>Dashboard</span>
         </a>
         <ul class="sub-menu">
-          <li class="active">
+          <li class="{{ (request()->is('/index')) ? 'active' : '' }}">
             <a href="{{ url('/index') }}">Dashboard</a>
           </li>
         </ul>
@@ -59,9 +59,12 @@
           <span>Form</span>
         </a>
         <ul class="sub-menu">
-          <li>
+        <li class="{{ (request()->is('/karyawan/form')) ? 'active' : '' }}">
             <a href="{{ url('/karyawan/form') }}">Data Karyawan</a>
-          </li>
+        </li>
+        <li class="{{ (request()->is('/karyawan/form')) ? 'active' : '' }}">
+            <a href="{{ url('/absensi/absensi') }}">Absensi</a>
+        </li>
         </ul>
       </li>
       <!-- begin sidebar minify button -->
