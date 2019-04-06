@@ -62,8 +62,8 @@
         <li class="{{ (request()->is('/karyawan/form')) ? 'active' : '' }}">
             <a href="{{ url('/karyawan/form') }}">Data Karyawan</a>
         </li>
-        <li class="{{ (request()->is('/karyawan/form')) ? 'active' : '' }}">
-            <a href="{{ url('/absensi/absensi') }}">Absensi</a>
+        <li class="{{ (request()->is('/absensi/dataabsensi')) ? 'active' : '' }}">
+            <a href="{{ url('/absensi/dataabsensi') }}">Data Absensi</a>
         </li>
         </ul>
       </li>
