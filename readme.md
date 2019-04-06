@@ -69,3 +69,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## How to Install
+
+git clone https://github.com/mwafi06/absensi
+cd absensi
+composer install
+php artisan migrate
+php artisan db:seed
+sebelum migrate pastikan sudah menyetting file .env untuk db anda
+done
