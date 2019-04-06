@@ -72,6 +72,7 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 
 ## How to Install
 
+```
 git clone https://github.com/mwafi06/absensi
 cd absensi
 composer install
@@ -79,3 +80,4 @@ php artisan migrate
 php artisan db:seed
 sebelum migrate pastikan sudah menyetting file .env untuk db anda
 done
+```
