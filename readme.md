@@ -79,5 +79,5 @@ composer install
 php artisan migrate
 php artisan db:seed
 sebelum migrate pastikan sudah menyetting file .env untuk db anda
-done
+enjoy
 ```
