@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Absensi</title>
+      <title>Admin Absensi</title>
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
       <link href="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet') }}" />
       <link href="{{ asset('assets/plugins/bootstrap/4.0.0/css/bootstrap.min.css') }}" rel="stylesheet" />

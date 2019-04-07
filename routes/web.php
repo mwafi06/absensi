@@ -20,6 +20,12 @@ Route::post('loginpost','AuthController@loginpost');
 Route::get('auths/register', 'AuthController@register');
 Route::post('registerPost', 'AuthController@registerPost');
 Route::get('logout', 'AuthController@logout');
+Route::get('/absen', function(){
+    return view('absensi/absen');
+});
+Route::get('/absen/sukses', function(){
+    return view('absensi/sukses');
+});
 
 Route::group(['middleware' => 'auth'],function(){
         Route::get('index','AuthController@index');

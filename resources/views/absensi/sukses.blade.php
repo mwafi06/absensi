@@ -36,21 +36,10 @@
 			        <h4 class="panel-title">Absensi Karyawan</h4>
 			    </div>
 			    <div class="panel-body">
-			        <form method="post" action="/absen/sukses">
-                         <div class="form-group">
-                    @csrf
-                        <center><label for="nip">Masukkan NIP Anda</label></center>
-                        <input type="number" class="form-control" name="nip"/>
-                        </div>
-                        <div class="pull-right">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+			       
 			    </div>
 			</div>
             <!-- end panel -->
-             <div class="m-t-20 m-b-40 p-b-40 text-center">
-               Anda admin? <a href="/auths/login" class="text-success">disini</a> 
-            </div>
         </div>
         
         <!-- end #content -->

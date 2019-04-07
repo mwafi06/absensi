@@ -10658,3 +10658,8 @@ a.text-lime:focus {
 .underline {
     border-bottom: 1px solid #e2e7eb !important;
 }
+.absen {
+    margin: 250px auto;
+    width: 400px;
+    padding: 10px;
+}

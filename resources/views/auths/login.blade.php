@@ -25,29 +25,34 @@
 	<script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
-<body class="pace-top bg-white">
+<body class="pace-top">
+    <div id="page-loader" class="fade show"><span class="spinner"></span></div>
 
+    <div class="login-cover">
+	    <div class="login-cover-image" style="background-image: url({{ asset('assets/img/login-bg/login-bg-12.jpg') }})" data-id="login-cover-image"></div>
+	    <div class="login-cover-bg"></div>
+	</div>
 	<!-- begin #page-container -->
 	<div id="page-container" class="fade">
 	    <!-- begin login -->
-        <div class="login login-with-news-feed">
+        <div class="login login-v2" data-pageload-addclass="animated fadeIn">
             <!-- begin news-feed -->
-            <div class="news-feed">
+            {{-- <div class="news-feed">
                 <div class="news-image" style="background-image: url({{ asset('assets/img/login-bg/login-bg-11.jpg)') }}"></div>
                 <div class="news-caption">
                     <h4 class="caption-title"><b>Login</b></h4>
                     <p>
-                        Download the Color Admin app for iPhone®, iPad®, and Android™. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Selamat datang, tampilan ini hanya untuk admin
                     </p>
                 </div>
-            </div>
+            </div> --}}
             <!-- end news-feed -->
             <!-- begin right-content -->
-            <div class="right-content">
+            <div class="login-content">
                 <!-- begin login-header -->
                 <div class="login-header">
                     <div class="brand">
-                        <span class="logo"></span> <b>Login</b>
+                        <span class="logo"></span><b>Login Admin</b>
                     </div>
                     <div class="icon">
                         <i class="fa fa-sign-in"></i>
@@ -81,15 +86,15 @@
 							</label>
 						</div>
                         <div class="login-buttons">
-                            <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                            <button type="submit" class="btn btn-success btn-block btn-lg">Sign In</button>
                         </div>
-                        <div class="m-t-20 m-b-40 p-b-40 text-inverse">
+                        {{-- <div class="m-t-20 m-b-40 p-b-40 text-inverse">
                             Not a member yet? Click <a href="/auths/register" class="text-success">here</a> to register.
-                        </div>
-                        <hr />
+                        </div> --}}
+                        {{-- <hr />
                         <p class="text-center text-grey-darker">
                             &copy; Color Admin
-                        </p>
+                        </p> --}}
                     </form>
                 </div>
                 <!-- end login-content -->
