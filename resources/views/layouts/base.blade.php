@@ -16,7 +16,6 @@
       <script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
     </head>
     <body>
-      <div class="container">
         <div class="page-cover"></div>
         @include('layouts.header')
         @include('layouts.sidebar')
@@ -25,7 +24,6 @@
         <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top">
           <i class="fa fa-angle-up"></i>
         </a>
-      </div>
       <script src="{{ asset('assets/plugins/jquery/jquery-3.2.1.min.js') }}"></script>
       <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
       <script src="{{ asset('assets/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js') }}"></script>
@@ -34,23 +32,11 @@
       <script src="{{ asset('assets/js/theme/transparent.min.js') }}"></script>
       <script src="{{ asset('assets/js/apps.min.js') }}"></script>
       <!-- ================== END BASE JS ================== -->
-      <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-      <script src="{{ asset('assets/plugins/flot/jquery.flot.min.js') }}"></script>
-      <script src="{{ asset('assets/plugins/flot/jquery.flot.time.min.js') }}"></script>
-      <script src="{{ asset('assets/plugins/flot/jquery.flot.resize.min.js') }}"></script>
-      <script src="{{ asset('assets/plugins/flot/jquery.flot.pie.min.js') }}"></script>
-      <script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.js') }}"></script>
-      <script src="{{ asset('assets/plugins/jquery-jvectormap/jquery-jvectormap.min.js') }}"></script>
-      <script src="{{ asset('assets/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-      <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-      <script src="{{ asset('assets/js/demo/dashboard.min.js') }}"></script>
-      <!-- ================== END PAGE LEVEL JS ================== -->
       <script>
 			$(document).ready(function() {
 			COLOR_BLACK_TRANSPARENT_2 = 'rgba(255,255,255,0.15)';
 			COLOR_WHITE = '#333';
 			App.init();
-			Dashboard.init();
 		});
     </script>
     </body>

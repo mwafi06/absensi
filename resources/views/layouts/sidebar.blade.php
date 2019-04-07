@@ -40,17 +40,11 @@
     <!-- begin sidebar nav -->
     <ul class="nav">
       <li class="nav-header">Navigation</li>
-      <li class="has-sub">
-        <a href="javascript:;">
-          <b class="caret"></b>
+      <li class="{{ (request()->is('/index')) ? 'active' : '' }}">
+        <a href="{{ url('/index') }}">
           <i class="fa fa-th-large"></i>
           <span>Dashboard</span>
         </a>
-        <ul class="sub-menu">
-          <li class="{{ (request()->is('/index')) ? 'active' : '' }}">
-            <a href="{{ url('/index') }}">Dashboard</a>
-          </li>
-        </ul>
       </li>
       <li class="has-sub">
         <a href="javascript:;">
@@ -59,10 +53,10 @@
           <span>Form</span>
         </a>
         <ul class="sub-menu">
-        <li class="{{ (request()->is('/karyawan/form')) ? 'active' : '' }}">
+        <li {{ (request()->is('/karyawan/form')) ? 'class="active"' : '' }}>
             <a href="{{ url('/karyawan/form') }}">Data Karyawan</a>
         </li>
-        <li class="{{ (request()->is('/absensi/dataabsensi')) ? 'active' : '' }}">
+        <li {{ (request()->is('/absensi/dataabsensi')) ? 'class="active"' : '' }}>
             <a href="{{ url('/absensi/dataabsensi') }}">Data Absensi</a>
         </li>
         </ul>

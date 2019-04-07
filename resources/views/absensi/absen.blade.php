@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+	<meta charset="utf-8" />
 	<title>Absensi Karyawan</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
@@ -18,43 +18,50 @@
 	<link href="{{ asset('assets/css/default/theme/default.css') }}" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
-	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
-        <div class="absen">
-            <!-- begin panel -->
-			<div class="panel panel-inverse">
-			    <div class="panel-heading">
-			        <div class="panel-heading-btn">
-			            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-			            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-			            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-			            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-			        </div>
-			        <h4 class="panel-title">Absensi Karyawan</h4>
-			    </div>
-			    <div class="panel-body">
-			        <form method="post" action="/absen/sukses">
-                         <div class="form-group">
-                    @csrf
-                        <center><label for="nip">Masukkan NIP Anda</label></center>
-                        <input type="number" class="form-control" name="nip"/>
-                        </div>
-                        <div class="pull-right">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-			    </div>
+	<div class="absen">
+		<!-- begin panel -->
+		<div class="panel panel-inverse">
+			<div class="panel-heading">
+				<h4 class="panel-title">Absensi Karyawan ( <span id="date-part"></span> - <span id="time-part"></span>)</h4>
 			</div>
-            <!-- end panel -->
-             <div class="m-t-20 m-b-40 p-b-40 text-center">
-               Anda admin? <a href="/auths/login" class="text-success">disini</a> 
-            </div>
-        </div>
-        
-        <!-- end #content -->
-           
+			<div class="panel-body">
+				@if(Session::get('msg_error') !== NULL)
+				<div class="alert alert-danger fade show m-b-10">
+					<span class="close" data-dismiss="alert">×</span>
+					{{Session::get('msg_error')}}
+				</div>
+				@endif
+				@if(Session::get('msg_success') !== NULL)
+				<div class="alert alert-success fade show m-b-10">
+					<span class="close" data-dismiss="alert">×</span>
+					{{Session::get('msg_success')}}
+				</div>
+				@endif
+				<form method="post" action="{{url('/absen/save')}}" id="form-absen">
+					@csrf						
+					<div class="form-group">
+						<center><label for="name">Masukkan NIP/Nama Anda</label></center>
+						<input type="text" class="form-control" name="name"/>
+					</div>
+					<div style="text-align:center">
+						<button type="button" class="btn btn-submit btn-success" id="masuk">Absen Masuk</button>
+						<button type="button" class="btn btn-submit btn-danger" id="keluar">Absen Keluar</button>
+					</div>
+					<div class="m-t-20 text-center">
+						Ajukan izin. <a href="#" class="text-success">Klik Disini</a> 
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- end panel -->
+		<div class="m-t-20 m-b-40 p-b-40 text-center">
+			Anda admin? <a href="/auths/login" class="text-success">Login Disini</a> 
+		</div>
+	</div>
+
+	<!-- end #content -->
 
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('assets/plugins/jquery/jquery-3.2.1.min.js') }}"></script>
@@ -64,11 +71,22 @@
 	<script src="{{ asset('assets/plugins/js-cookie/js.cookie.js') }}"></script>
 	<script src="{{ asset('assets/js/theme/default.min.js') }}"></script>
 	<script src="{{ asset('assets/js/apps.min.js') }}"></script>
+	<script src="{{ asset('assets/js/moment.min.js') }}"></script>
 	<!-- ================== END BASE JS ================== -->
-	
-	<script>
+
+	<script type="text/javascript">
 		$(document).ready(function() {
-			App.init();
+			var interval = setInterval(function() {
+				var momentNow = moment();
+				$('#date-part').html(momentNow.format('YYYY/MM/DD'));
+				$('#time-part').html(momentNow.format('hh:mm:ss A'));
+			}, 100);
+		});
+
+		$(".btn-submit").click(function() {
+			let type = $(this).attr('id');
+			$("#form-absen").append('<input type="hidden" name="type" value="value" /> ');
+			$("#form-absen").submit();
 		});
 	</script>
 </body>

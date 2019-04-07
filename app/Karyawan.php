@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Karyawan extends Model
 {
     // iprotected $table = 'karyawan';
+
+    protected $table = 'karyawans';
+
     protected $fillable = [
-    'nip',
-    'nama',
-    'tgl_lhr',
-    'asal',
-    'j_kel',
-    'alamat',
-    'no_tlp',
-    'status',
-    'jabatan'
-  ];
+        'nip',
+        'nama',
+        'tgl_lhr',
+        'asal',
+        'j_kel',
+        'alamat',
+        'no_tlp',
+        'status',
+        'jabatan'
+    ];
 }

@@ -22,6 +22,7 @@ class KaryawanSeeder extends Seeder
                 'nip' => $faker->randomNumber,
                 'nama' => $faker->name($gender), //email unique sehingga tidak ada yang sama
                 'tgl_lhr' => $faker->date,
+                'jabatan' => 1,
                 'asal' => $faker->city,
                 'j_kel' => $gender,
                 'alamat' => $faker->address,
