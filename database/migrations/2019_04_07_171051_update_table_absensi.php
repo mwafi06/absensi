@@ -16,7 +16,7 @@ class UpdateTableAbsensi extends Migration
         Schema::table('absensi', function (Blueprint $table) {
             $table->dropColumn(['nip','name']);
             $table->integer('karyawan_id')->after('abs_out');
-            $table->enum('status',['masuk','izin','alpa'])->default('alpa')->after('karyawan_id');
+            $table->enum('status',['masuk','izin','alpa'])->default('masuk')->after('karyawan_id');
         });
     }
 

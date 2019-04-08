@@ -19,7 +19,7 @@ class KaryawanSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('karyawans')->insert([ //mengisi datadi database
-                'nip' => $faker->randomNumber,
+                'nip' => $faker->randomNumber(8,true),
                 'nama' => $faker->name($gender), //email unique sehingga tidak ada yang sama
                 'tgl_lhr' => $faker->date,
                 'jabatan' => 1,

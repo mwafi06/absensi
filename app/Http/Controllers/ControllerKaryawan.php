@@ -14,19 +14,11 @@ class ControllerKaryawan extends Controller
      */
     public function index()
     {
-        $karyawan = Karyawan::all();
-        $data['page'] = 'Dashboard';
-        $data['data_count'] = count($karyawan);
-
-        return view('layouts.index',$data);
-    }
-    
-    public function form()
-    {
         $data['karyawan'] = Karyawan::all();
         $data['page'] = 'Form';
         return view('karyawan.form', $data);
     }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -62,7 +54,7 @@ class ControllerKaryawan extends Controller
             'jabatan' => $request->get('jabatan')
         ]);
         $karyawan->save();
-        return redirect('/karyawan/form')->with('Success', 'Data Telah Tersimpan!');
+        return redirect('/karyawan')->with('Success', 'Data Telah Tersimpan!');
     }
 
     /**
@@ -114,7 +106,7 @@ class ControllerKaryawan extends Controller
         $karyawan->jabatan = $request->get('jabatan');
         $karyawan->save();
 
-        return redirect('/karyawan/form')->with('Success', 'Data Telah Di Update!');
+        return redirect('/karyawan')->with('Success', 'Data Telah Di Update!');
     }
 
     /**
@@ -128,6 +120,6 @@ class ControllerKaryawan extends Controller
         $karyawan = Karyawan::find($id);
         $karyawan->delete();
 
-        return redirect('/karyawan/form')->with('Success', 'Data Telah Di Hapus!');
+        return redirect('/karyawan')->with('Success', 'Data Telah Di Hapus!');
     }
 }

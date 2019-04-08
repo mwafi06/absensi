@@ -85,8 +85,16 @@
 
 		$(".btn-submit").click(function() {
 			let type = $(this).attr('id');
-			$("#form-absen").append('<input type="hidden" name="type" value="value" /> ');
+			$("#form-absen").append('<input type="hidden" name="type" value="'+type+'" /> ');
 			$("#form-absen").submit();
+		});
+
+		$('#form-absen').on('keyup keypress', function(e) {
+			var keyCode = e.keyCode || e.which;
+			if (keyCode === 13) { 
+				e.preventDefault();
+				return false;
+			}
 		});
 	</script>
 </body>

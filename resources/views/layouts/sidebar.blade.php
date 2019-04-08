@@ -12,7 +12,7 @@
           </div>
           <div class="info">
             <b class="caret pull-right"></b>
-								{{Session::get('name')}}		
+            {{Session::get('name')}}		
           </div>
         </a>
       </li>
@@ -40,25 +40,25 @@
     <!-- begin sidebar nav -->
     <ul class="nav">
       <li class="nav-header">Navigation</li>
-      <li class="{{ (request()->is('/index')) ? 'active' : '' }}">
+      <li {{ (request()->is('index')) ? 'class=active' : '' }}>
         <a href="{{ url('/index') }}">
           <i class="fa fa-th-large"></i>
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="has-sub">
+      <li class="has-sub {{(request()->is('karyawan')) || (request()->is('absensi')) ? 'active':NULL}}">
         <a href="javascript:;">
           <b class="caret"></b>
           <i class="fa fa-table"></i>
           <span>Form</span>
         </a>
         <ul class="sub-menu">
-        <li {{ (request()->is('/karyawan/form')) ? 'class="active"' : '' }}>
-            <a href="{{ url('/karyawan/form') }}">Data Karyawan</a>
-        </li>
-        <li {{ (request()->is('/absensi/dataabsensi')) ? 'class="active"' : '' }}>
-            <a href="{{ url('/absensi/dataabsensi') }}">Data Absensi</a>
-        </li>
+          <li {{ (request()->is('karyawan')) ? 'class=active' : '' }}>
+            <a href="{{ url('/karyawan') }}">Data Karyawan</a>
+          </li>
+          <li {{ (request()->is('absensi')) ? 'class=active' : '' }}>
+            <a href="{{ url('/absensi') }}">Data Absensi</a>
+          </li>
         </ul>
       </li>
       <!-- begin sidebar minify button -->

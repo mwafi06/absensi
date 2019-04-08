@@ -33,7 +33,7 @@
             <p>{{$data_count}}</p>
           </div>
           <div class="stats-link">
-            <a href="{{ $data_count > 0 ? url('/karyawan/form') : '/karyawan/form'}}">View Detail 
+            <a href="{{ $data_count > 0 ? url('/karyawan') : '/karyawan'}}">View Detail 
               <i class="fa fa-arrow-alt-circle-right"></i>
             </a>
           </div>

@@ -16,9 +16,9 @@ class CreateAbsensiTable extends Migration
         Schema::create('absensi', function (Blueprint $table) {
             $table->Increments('id');
             $table->date('tgl');
-            $table->time('abs_in');
-            $table->time('abs_out');
-            $table->longtext('keterangan');
+            $table->time('abs_in')->nullable();
+            $table->time('abs_out')->nullable();
+            $table->longtext('keterangan')->nullable();
             $table->integer('nip');
             $table->string('name');
             $table->timestamps();
