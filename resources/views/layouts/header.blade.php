@@ -42,7 +42,7 @@
       </li>
       <li class="dropdown navbar-user">
         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-          <img src="../assets/img/user/user-13.jpg" alt="" />
+          <img src="{{ asset('assets/img/user/user-13.jpg') }}" alt="" />
           <span class="d-none d-md-inline">{{Session::get('name')}}</span>
           <b class="caret"></b>
         </a>
