@@ -76,8 +76,9 @@
               <input type="text" class="form-control" name="status"/>
           </div>
           <div class="form-group">
-              <label for="jabatan">Jabatan</label>
-              <input type="text" class="form-control" name="jabatan"/>
+            {!! Form::label('Jabatan') !!}<br />
+            {!! Form::select('jabatan_id', 
+            $jabatans, null, ['class' => 'form-control']) !!}
           </div>
           <button type="submit" class="btn btn-primary">Add Data</button>
       </form>

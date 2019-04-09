@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Karyawan;
+use App\Jabatan;
+// use DB;
 
 class ControllerKaryawan extends Controller
 {
@@ -16,6 +18,9 @@ class ControllerKaryawan extends Controller
     {
         $data['karyawan'] = Karyawan::all();
         $data['page'] = 'Form';
+        // $karyawans = DB::table('karyawans')
+		// ->join('jabatan', 'jabatan.id', '=', 'karyawans.jabatan_id')
+		// ->get();
         return view('karyawan.form', $data);
     }
     
@@ -26,7 +31,8 @@ class ControllerKaryawan extends Controller
      */
     public function create()
     {
-        return view('karyawan.create');
+        $jabatans = Jabatan::pluck('nama_jabatan', 'id');
+        return view('karyawan.create', compact('id', 'jabatans'));
     }
 
     /**
@@ -51,9 +57,10 @@ class ControllerKaryawan extends Controller
             'alamat' => $request->get('alamat'),
             'no_tlp' => $request->get('no_tlp'),
             'status' => $request->get('status'),
-            'jabatan' => $request->get('jabatan')
+            'jabatan_id' => $request->get('jabatan_id')
         ]);
         $karyawan->save();
+        // $post->jabatan()->sync($request->get('jabatan_id'));
         return redirect('/karyawan')->with('Success', 'Data Telah Tersimpan!');
     }
 
@@ -77,7 +84,8 @@ class ControllerKaryawan extends Controller
     public function edit($id)
     {
         $karyawan = Karyawan::find($id);
-        return view('/karyawan/edit', compact('karyawan'));
+        $jabatans = Jabatan::get();
+        return view('/karyawan/edit', compact('karyawan','jabatans'));
     }
 
     /**

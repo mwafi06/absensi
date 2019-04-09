@@ -70,7 +70,7 @@ class AbsenController extends Controller
 
             $absensi->save();
 
-            Session::flash('msg_success','Data berhasil di update!');
+            Session::flash('msg_success','Sukses, Have A Nice Day!');
             return redirect($callback);
         }else{
 
@@ -109,7 +109,7 @@ class AbsenController extends Controller
 
             $absensi->save();
 
-            Session::flash('msg_success','Data berhasil di update!');
+            Session::flash('msg_success','Sukses!');
             return redirect($callback);
         }
     }

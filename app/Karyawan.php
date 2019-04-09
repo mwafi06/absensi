@@ -9,6 +9,7 @@ class Karyawan extends Model
     // iprotected $table = 'karyawan';
 
     protected $table = 'karyawans';
+    protected $primaryKey= 'id';
 
     protected $fillable = [
         'nip',
@@ -19,6 +20,10 @@ class Karyawan extends Model
         'alamat',
         'no_tlp',
         'status',
-        'jabatan'
+        'jabatan_id'
     ];
+
+    public function jabatan(){
+      return $this->belongsTo(Jabatan::class);
+    }
 }

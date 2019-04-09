@@ -61,23 +61,23 @@ public function index(){
         return redirect('/auths/login')->with('alert','Logout Berhasil!');
     }
 
-    public function register(Request $request){
-        return view('auths.register');
-    }
+    // public function register(Request $request){
+    //     return view('auths.register');
+    // }
 
-    public function registerPost(Request $request){
-        $this->validate($request, [
-            'name' => 'required|min:4',
-            'email' => 'required|min:4|email|unique:users',
-            'password' => 'required',
-            // 'confirmation' => 'required|same:password',
-        ]);
+    // public function registerPost(Request $request){
+    //     $this->validate($request, [
+    //         'name' => 'required|min:4',
+    //         'email' => 'required|min:4|email|unique:users',
+    //         'password' => 'required',
+    //         // 'confirmation' => 'required|same:password',
+    //     ]);
 
-        $data =  new User();
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->password = bcrypt($request->password);
-        $data->save();
-        return redirect('/auths/login')->with('alert-success','Kamu berhasil Register!');
-    }
+    //     $data =  new User();
+    //     $data->name = $request->name;
+    //     $data->email = $request->email;
+    //     $data->password = bcrypt($request->password);
+    //     $data->save();
+    //     return redirect('/auths/login')->with('alert-success','Kamu berhasil Register!');
+    // }
 }

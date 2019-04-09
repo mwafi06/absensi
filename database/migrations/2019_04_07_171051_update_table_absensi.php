@@ -13,7 +13,7 @@ class UpdateTableAbsensi extends Migration
      */
     public function up()
     {
-        Schema::table('absensi', function (Blueprint $table) {
+        Schema::table('absen', function (Blueprint $table) {
             $table->dropColumn(['nip','name']);
             $table->integer('karyawan_id')->after('abs_out');
             $table->enum('status',['masuk','izin','alpa'])->default('masuk')->after('karyawan_id');
@@ -27,7 +27,7 @@ class UpdateTableAbsensi extends Migration
      */
     public function down()
     {
-        Schema::table('absensi', function (Blueprint $table) {
+        Schema::table('absen', function (Blueprint $table) {
             $table->dropColumn(['status','karyawan_id']);
             $table->integer('nip')->after('abs_out');
             $table->string('name')->after('nip');

@@ -69,7 +69,7 @@
                         <td>{{$datas->alamat }}</td>
                         <td>{{$datas->no_tlp }}</td>
                         <td>{{$datas->status }}</td>
-                        <td>{{$datas->jabatan }}</td>
+                        <td>{{$datas->jabatan->nama_jabatan }}</td>
                         <td>
                           <a href="/karyawan/edit/{{$datas->id }}" class="btn btn-sm btn-primary m-r-2">Edit</a>
                         </td>

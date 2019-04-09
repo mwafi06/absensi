@@ -23,7 +23,7 @@ class CreateKaryawansTable extends Migration
             $table->longText('alamat');
             $table->string('no_tlp', 45);
             $table->string('status', 45)->nullable();
-            $table->integer('jabatan');
+            $table->string('jabatan_id', 100);
             $table->timestamps();
         });
     }

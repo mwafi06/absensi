@@ -15,7 +15,7 @@ class CreateJabatanTable extends Migration
     {
         Schema::create('jabatan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('jabatan', 45);
+            $table->string('nama_jabatan', 45);
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class CreateAbsensiTable extends Migration
      */
     public function up()
     {
-        Schema::create('absensi', function (Blueprint $table) {
+        Schema::create('absen', function (Blueprint $table) {
             $table->Increments('id');
             $table->date('tgl');
             $table->time('abs_in')->nullable();

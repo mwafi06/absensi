@@ -78,8 +78,16 @@
               <input type="text" value={{ $karyawan->status }} class="form-control" name="status" />
           </div>
           <div class="form-group">
-              <label for="jabatan">Jabatan</label>
-              <input type="text" value={{ $karyawan->jabatan }} class="form-control" name="jabatan" />
+            <label for="jabatan">Jabatan</label>
+            @foreach ($jabatans as $item)
+            <?php if($item->id == $karyawan->jabatan_id){ ?>
+           <select name="jabatan_id" class="form-control">
+           <option selected="selected" value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+           <?php } else { ?>
+           <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+           <?php } ?>
+           @endforeach
+           </select>
           </div>
           <button type="submit" class="btn btn-primary">Edit Data</button>
       </form>
