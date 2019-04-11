@@ -22,11 +22,12 @@ Route::post('registerPost', 'AuthController@registerPost');
 Route::get('logout', 'AuthController@logout');
 
 /*
- * routes for absensi
+ * routes for ijin
  */
 Route::get('/','AbsenController@index');
 Route::get('/absen','AbsenController@index')->name('absen');
 Route::post('/absen/save','AbsenController@save');
+Route::post('absensi/request-izin','AbsenController@requestIzin');
 
 Route::group(['middleware' => 'auth'],function(){
 	Route::get('index','HomeController@index');
@@ -40,6 +41,10 @@ Route::group(['middleware' => 'auth'],function(){
     /*
 	 * routes for absensi
 	 */
-	Route::get('absensi','AbsenController@list');
-	Route::post('absensi/update-status','AbsenController@updateStatus');
+    Route::get('absensi','AbsenController@list');
+    Route::post('absensi/update-status','AbsenController@updateStatus');
+});
+
+Route::group(['middleware' => 'auth:karyawan'],function(){
+	Route::get('karyawan/detail','ControllerKaryawan@show');
 });

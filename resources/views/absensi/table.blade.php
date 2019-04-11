@@ -54,12 +54,11 @@
 						</tr>
 						@foreach($karyawan as $key => $value)
 						<?php
-						$absen 		= App\Absensi::where('karyawan_id',$value->id)->where('tgl',date('Y-m-d'))->first();
-						$abs_id 	= isset($absen->id) ? $absen->id : NULL;
-						$abs_in 	= isset($absen->abs_in) ? $absen->abs_in : NULL;
-						$abs_out 	= isset($absen->abs_out) ? $absen->abs_out : NULL;
-						$status 	= isset($absen->status) ? $absen->status : '-';
-						$keterangan = isset($absen->keterangan) ? $absen->keterangan : '-';
+						$abs_id 	= isset($value->absen_id) ? $value->absen_id : NULL;
+						$abs_in 	= isset($value->abs_in) ? $value->abs_in : NULL;
+						$abs_out 	= isset($value->abs_out) ? $value->abs_out : NULL;
+						$status 	= isset($value->absen_status) ? $value->absen_status : '-';
+						$keterangan = isset($value->keterangan) ? $value->keterangan : '-';
 						?>
 						<tr absen_id="{{$value->id}}">
 							<td>{{$key+1}}</td>
@@ -115,7 +114,7 @@
 							<td>{{$keterangan}}</td>
 							<td>{{$status}}</td>
 							<td>
-								<a href="#modal-dialog" class="btn btn-sm btn-primary m-r-2"  data-toggle="modal" karyawan-id="{{$value->id}}" update-status>Update Status</a>
+								<a href="#modal-dialog" class="btn btn-sm btn-primary m-r-2"  data-toggle="modal" karyawan-id="{{$value->id}}" update-status karyawan-ket="{{$value->keterangan}}">Update Status</a>
 							</td>
 						</tr>
 						@endforeach
@@ -136,7 +135,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label style="color: #495057" >Staus</label>
+						<label style="color: #495057" >Status</label>
 						<select class="form-control" style="border: 1px solid #d3d8de;color: #495057;margin-bottom: 5px" name="status">
 							<option value="masuk">Masuk</option>
 							<option value="izin">Izin</option>
@@ -145,7 +144,7 @@
 					</div>
 					<div class="form-group">
 						<label style="color: #495057" >Keterangan</label>
-						<textarea class="form-control" style="border: 1px solid #d3d8de;color: #495057" name="keterangan" placeholder="-"></textarea>
+						<textarea class="form-control" style="border: 1px solid #d3d8de;color: #495057" name="keterangan" placeholder="-" id="hid_karyawan_ket"></textarea>
 					</div>
 				</div>
 				<div class="modal-footer">

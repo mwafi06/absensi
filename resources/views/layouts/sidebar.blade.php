@@ -38,6 +38,7 @@
     </ul>
     <!-- end sidebar user -->
     <!-- begin sidebar nav -->
+    @if (Auth::guard('web')->check()) 
     <ul class="nav">
       <li class="nav-header">Navigation</li>
       <li {{ (request()->is('index')) ? 'class=active' : '' }}>
@@ -69,6 +70,19 @@
       </li>
       <!-- end sidebar minify button -->
     </ul>
+    @endif
+    @if (Auth::guard('karyawan')->check()) 
+    <ul class="nav">
+      <li class="nav-header">Navigation</li>
+      <li {{ (request()->is('karyawan/detail')) ? 'class=active' : '' }}>
+        <a href="{{ url('/karyawan/detail') }}">
+          <i class="fa fa-th-large"></i>
+          <span>Karyawan</span>
+        </a>
+      </li>
+      <!-- end sidebar minify button -->
+    </ul>
+    @endif
     <!-- end sidebar nav -->
   </div>
   <!-- end sidebar scrollbar -->

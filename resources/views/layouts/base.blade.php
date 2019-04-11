@@ -12,14 +12,9 @@
 	<link href="{{ asset('assets/css/default/style.min.css') }}" rel="stylesheet" />
 	<link href="{{ asset('assets/css/default/style-responsive.min.css') }}" rel="stylesheet" />
 	<link href="{{ asset('assets/css/default/theme/default.css') }}" rel="stylesheet" id="theme" />
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/bootstrap-eonasdan-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
-    <link href="{{ asset('assets/plugins/jquery-jvectormap/jquery-jvectormap.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/gritter/css/jquery.gritter.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/nvd3/build/nv.d3.css') }}" rel="stylesheet" />
-	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('assets/plugins/pace/pace.min.js') }}"></script>
@@ -36,30 +31,20 @@
     </a>
     <!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('assets/plugins/jquery/jquery-3.2.1.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/js-cookie/js.cookie.js') }}"></script>
-	<script src="{{ asset('assets/js/theme/default.min.js') }}"></script>
-	<script src="{{ asset('assets/js/apps.min.js') }}"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/nvd3/build/nv.d3.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-jvectormap/jquery-jvectormap.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-jvectormap/jquery-jvectormap-world-merc-en.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js') }}"></script>
-	<script src="{{ asset('assets/plugins/gritter/js/jquery.gritter.js') }}"></script>
-    <script src="{{ asset('assets/js/demo/dashboard-v2.min.js') }}"></script>
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
-	<!-- ================== END PAGE LEVEL JS ================== -->
+    <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-eonasdan-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/js-cookie/js.cookie.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/transparent.min.js') }}"></script>
+    <script src="{{ asset('assets/js/apps.min.js') }}"></script>
+	<!-- ================== END BASE JS ================== -->
     
     <script>
         $(document).ready(function() {
 			App.init();
-			DashboardV2.init();
-		
+		      
             /*
              * for page absensi
              */
@@ -73,7 +58,9 @@
 
             $('[update-status]').click(function () {  
                 let nip = $(this).attr('karyawan-id');
+                let ket = $(this).attr('karyawan-ket');
                 $('#hid_karyawan_id').val(nip);
+                $('#hid_karyawan_ket').val(ket);
             });
 
             $('[reset]').click(function () {  

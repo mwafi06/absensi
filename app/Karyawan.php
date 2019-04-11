@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Karyawan extends Model
+class Karyawan extends Authenticatable
 {
     // iprotected $table = 'karyawan';
 
@@ -24,6 +24,11 @@ class Karyawan extends Model
     ];
 
     public function jabatan(){
-      return $this->belongsTo(Jabatan::class);
+        return $this->belongsTo(Jabatan::class);
+    }
+
+    public function getAuthPassword()
+    {
+        return bcrypt($this->nip);
     }
 }

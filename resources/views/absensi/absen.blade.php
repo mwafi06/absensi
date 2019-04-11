@@ -42,7 +42,7 @@
 				<form method="post" action="{{url('/absen/save')}}" id="form-absen">
 					@csrf						
 					<div class="form-group">
-						<center><label for="name">Masukkan NIP/Nama Anda</label></center>
+						<center><label for="name">Masukkan NIP</label></center>
 						<input type="text" class="form-control" name="name"/>
 					</div>
 					<div style="text-align:center">
@@ -50,14 +50,42 @@
 						<button type="button" class="btn btn-submit btn-danger" id="keluar">Absen Keluar</button>
 					</div>
 					<div class="m-t-20 text-center">
-						Ajukan izin. <a href="#" class="text-success">Klik Disini</a> 
+						Ajukan izin. <a href="#modal-dialog" class="text-success" data-toggle="modal">Klik Disini</a> 
 					</div>
 				</form>
 			</div>
 		</div>
 		<!-- end panel -->
 		<div class="m-t-20 m-b-40 p-b-40 text-center">
-			Anda admin? <a href="/auths/login" class="text-success">Login Disini</a> 
+			<a href="/auths/login" class="text-success">Login Disini</a> 
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form method="post" action="{{url('/absensi/request-izin')}}" id="update-status">
+					<div class="modal-header">
+						<h4 class="modal-title">Ajukan Izin</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label style="color: #495057" >Masukkan NIP/Nama Anda</label>
+							<input type="text"  class="form-control" style="border: 1px solid #d3d8de;color: #495057" name="name" required="">
+						</div>
+						<div class="form-group">
+							<label style="color: #495057" >Keterangan</label>
+							<textarea class="form-control" style="border: 1px solid #d3d8de;color: #495057" name="keterangan" placeholder="-"></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						@csrf
+						<button class="btn btn-white" data-dismiss="modal" reset>Close</button>
+						<button class="btn btn-success" type="submit">Update</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 

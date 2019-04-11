@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Karyawan;
 use App\Jabatan;
+use App\Absensi;
 // use DB;
 
 class ControllerKaryawan extends Controller
@@ -70,9 +72,30 @@ class ControllerKaryawan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $data['page'] = 'Detail karyawan';
+        $data_absensi = array();
+
+        if (!is_null($request->bulan) && !is_null($request->tahun)) {
+            $date   =array();
+
+            for($d=1; $d<=31; $d++)
+            {
+                $time=mktime(12, 0, 0, $request->bulan, $d, $request->tahun);          
+                if (date('m', $time)==$request->bulan)       
+                    $date[] = date('Y-m-d', $time);
+            }
+
+            $data_absensi = Absensi::whereBetween('tgl',[$date[0],$date[count($date)-1]])
+            ->leftJoin('karyawans','karyawans.id','=','absen.karyawan_id')
+            ->select(DB::raw('karyawans.*,absen.id as absen_id,absen.abs_in,absen.abs_out,absen.karyawan_id,absen.keterangan,absen.status as absen_status'))
+            ->where('karyawan_id',session()->get('karyawan_id'))
+            ->get();
+        }
+
+        $data['data_absensi'] = $data_absensi;
+        return view('/karyawan/detail',$data);
     }
 
     /**
@@ -111,7 +134,7 @@ class ControllerKaryawan extends Controller
         $karyawan->alamat = $request->get('alamat');
         $karyawan->no_tlp = $request->get('no_tlp');
         $karyawan->status = $request->get('status');
-        $karyawan->jabatan = $request->get('jabatan');
+        $karyawan->jabatan_id = $request->get('jabatan_id');
         $karyawan->save();
 
         return redirect('/karyawan')->with('Success', 'Data Telah Di Update!');
