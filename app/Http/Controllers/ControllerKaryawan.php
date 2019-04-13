@@ -33,7 +33,6 @@ class ControllerKaryawan extends Controller
      */
     public function create()
     {
-        dd('tes');
         $jabatans = Jabatan::pluck('nama_jabatan', 'id');
         return view('karyawan.create', compact('id', 'jabatans'));
     }
