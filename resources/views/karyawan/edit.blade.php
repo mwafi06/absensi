@@ -79,9 +79,9 @@
           </div>
           <div class="form-group">
             <label for="jabatan">Jabatan</label>
+           <select name="jabatan_id" class="form-control">            
             @foreach ($jabatans as $item)
             <?php if($item->id == $karyawan->jabatan_id){ ?>
-           <select name="jabatan_id" class="form-control">
            <option selected="selected" value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
            <?php } else { ?>
            <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>

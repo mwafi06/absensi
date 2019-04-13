@@ -63,7 +63,24 @@
                         </form>
                         <br>
                         <br>
+                        <form class="form-inline" action="{{url('karyawan/export')}}" enctype="multipart/form-data">
+                            <input type="hidden" value="{{isset(request()->bulan) ? request()->bulan : ''}}" name="bulan">
+                            <input type="hidden" value="{{isset(request()->tahun) ? request()->tahun : ''}}" name="tahun">                            
+                            <button type="submit" class="btn btn-sm btn-primary m-r-5">Export</button>
+                        </form>
+                        <br>
+                        <br>
                     </div>
+                    @if(\Session::has('alert'))
+                    <div class="alert alert-danger">
+                        <div>{{Session::get('alert')}}</div>
+                    </div>
+                    @endif
+                    @if(\Session::has('alert-success'))
+                    <div class="alert alert-success">
+                        <div>{{Session::get('alert-success')}}</div>
+                    </div>
+                    @endif
 
                     @if(count($data_absensi) > 0)
                     <table class="table table-hover">

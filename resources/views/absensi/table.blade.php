@@ -49,7 +49,7 @@
 							<td>Absen Masuk</td>
 							<td>Absen Keluar</td>
 							<td>Keterangan</td>
-							<td>status</td>
+							<td>Status</td>
 							<td>Actions</td>
 						</tr>
 						@foreach($karyawan as $key => $value)

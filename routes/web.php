@@ -42,9 +42,11 @@ Route::group(['middleware' => 'auth'],function(){
 	 * routes for absensi
 	 */
     Route::get('absensi','AbsenController@list');
-    Route::post('absensi/update-status','AbsenController@updateStatus');
+	Route::post('absensi/update-status','AbsenController@updateStatus');
 });
 
 Route::group(['middleware' => 'auth:karyawan'],function(){
 	Route::get('karyawan/detail','ControllerKaryawan@show');
+	 Route::get('karyawan/createExport', 'ExportController@createExport');
+	 Route::get('karyawan/export', 'ExportController@exportFile');
 });
