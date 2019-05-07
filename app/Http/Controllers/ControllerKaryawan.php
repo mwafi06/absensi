@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use App\Karyawan;
 use App\Jabatan;
 use App\Absensi;
-// use DB;
 
 class ControllerKaryawan extends Controller
 {
@@ -20,9 +19,6 @@ class ControllerKaryawan extends Controller
     {
         $data['karyawan'] = Karyawan::all();
         $data['page'] = 'Form';
-        // $karyawans = DB::table('karyawans')
-		// ->join('jabatan', 'jabatan.id', '=', 'karyawans.jabatan_id')
-		// ->get();
         return view('karyawan.form', $data);
     }
     
@@ -77,7 +73,7 @@ class ControllerKaryawan extends Controller
         $data['page'] = 'Detail karyawan';
         $data_absensi = array();
 
-        if (!is_null($request->bulan) && !is_null($request->tahun)) {
+        if ((!is_null($request->bulan) && $request->bulan != 'Bulan') && (!is_null($request->tahun) && $request->tahun != 'Tahun')) {
             $date   =array();
 
             for($d=1; $d<=31; $d++)
@@ -89,7 +85,7 @@ class ControllerKaryawan extends Controller
 
             $data_absensi = Absensi::whereBetween('tgl',[$date[0],$date[count($date)-1]])
             ->leftJoin('karyawans','karyawans.id','=','absen.karyawan_id')
-            ->select(DB::raw('karyawans.*,absen.id as absen_id,absen.abs_in,absen.abs_out,absen.karyawan_id,absen.keterangan,absen.status as absen_status'))
+            ->select(DB::raw('karyawans.*,absen.id as absen_id,absen.abs_in,absen.abs_out,absen.karyawan_id,absen.keterangan,absen.status as absen_status, absen.tgl as absen_tgl'))
             ->where('karyawan_id',session()->get('karyawan_id'))
             ->get();
         }

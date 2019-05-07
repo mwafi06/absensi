@@ -104,7 +104,7 @@
                         ?>
                         <tr absen_id="{{$value->id}}">
                             <td>{{$key+1}}</td>
-                            <td>{{date('Y-m-d')}}</td>
+                            <td>{{$value->absen_tgl}}</td>
                             <td>{{$value->nip}}</td>
                             <td>{{$value->nama}}</td>
                             <td>
