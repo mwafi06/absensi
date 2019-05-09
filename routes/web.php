@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     // return view('auths/login');
-// });
-
 Route::get('auths/login','AuthController@login')->name('login');
 Route::post('loginpost','AuthController@loginpost');
 Route::get('auths/register', 'AuthController@register');

@@ -36,7 +36,7 @@
 				@if(Session::get('msg_success') !== NULL)
 				<div class="alert alert-success fade show m-b-10">
 					<span class="close" data-dismiss="alert">×</span>
-					{{Session::get('msg_success')}}
+					{{Session::get('msg_success')}} {{Session::get('userData')->nama}}
 				</div>
 				@endif
 				<form method="post" action="{{url('/absen/save')}}" id="form-absen">

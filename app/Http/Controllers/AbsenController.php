@@ -48,7 +48,7 @@ class AbsenController extends Controller
             Session::flash('msg_error','User tidak terdaftar');
             return redirect(route('absen'));
         }
-
+        Session::flash('userData', $data_karyawan);
         /*
          * get data absensi by date and kayawan id
          */
@@ -110,7 +110,7 @@ class AbsenController extends Controller
 
             $absensi->save();
 
-            Session::flash('msg_success','Sukses!');
+            Session::flash('msg_success','Sukses! Terimakasih');
             return redirect($callback);
         }
     }

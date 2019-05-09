@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | Login Page</title>
+	<title>Login Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -36,23 +36,12 @@
    <div id="page-container" class="fade">
        <!-- begin login -->
        <div class="login login-v2" data-pageload-addclass="animated fadeIn">
-        <!-- begin news-feed -->
-        {{-- <div class="news-feed">
-            <div class="news-image" style="background-image: url({{ asset('assets/img/login-bg/login-bg-11.jpg)') }}"></div>
-            <div class="news-caption">
-                <h4 class="caption-title"><b>Login</b></h4>
-                <p>
-                    Selamat datang, tampilan ini hanya untuk admin
-                </p>
-            </div>
-        </div> --}}
-        <!-- end news-feed -->
         <!-- begin right-content -->
         <div class="login-content">
             <!-- begin login-header -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo"></span><b>Login Admin</b>
+                    <span class="logo"></span><b>Login</b>
                 </div>
                 <div class="icon">
                     <i class="fa fa-sign-in"></i>
@@ -90,13 +79,6 @@
                 <div class="login-buttons">
                     <button type="submit" class="btn btn-success btn-block btn-lg">Sign In</button>
                 </div>
-                {{-- <div class="m-t-20 m-b-40 p-b-40 text-inverse">
-                    Not a member yet? Click <a href="/auths/register" class="text-success">here</a> to register.
-                </div> --}}
-                {{-- <hr />
-                    <p class="text-center text-grey-darker">
-                        &copy; Color Admin
-                    </p> --}}
                 </form>
             </div>
             <!-- end login-content -->

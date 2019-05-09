@@ -69,7 +69,7 @@
 								@if(!is_null($abs_in))
 								{{$abs_in}}
 								@else
-								@if ($status == 'masuk' || $status == '-')
+								@if ($status == 'Masuk' || $status == '-')
 								<form  method="post" action="{{url('/absen/save?callback=absensi')}}">
 									@csrf
 									<div class="form-group">
@@ -79,7 +79,7 @@
 												<span class="fa fa-clock"></span>
 											</span>
 										</div>
-										<input type="hidden" name="type" value="masuk">
+										<input type="hidden" name="type" value="Masuk">
 										<input type="hidden" name="name" value="{{$value->nip}}">
 									</div>
 								</form>
@@ -92,7 +92,7 @@
 								@if(!is_null($abs_out))
 								{{$abs_out}}
 								@else
-								@if ($status == 'masuk' || $status == '-')
+								@if ($status == 'Masuk' || $status == '-')
 								<form  method="post" action="{{url('/absen/save?callback=absensi')}}">
 									@csrf
 									<div class="form-group">
@@ -137,9 +137,9 @@
 					<div class="form-group">
 						<label style="color: #495057" >Status</label>
 						<select class="form-control" style="border: 1px solid #d3d8de;color: #495057;margin-bottom: 5px" name="status">
-							<option value="masuk">Masuk</option>
-							<option value="izin">Izin</option>
-							<option value="alpa">Alpa</option>
+							<option value="Masuk">Masuk</option>
+							<option value="Izin">Izin</option>
+							<option value="Alpa">Alpa</option>
 						</select>
 					</div>
 					<div class="form-group">
