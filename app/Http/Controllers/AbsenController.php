@@ -208,7 +208,7 @@ class AbsenController extends Controller
         /*
          * get karyawan data by nip or name
          */
-        $data_karyawan = Karyawan::where('nama',$all_post->name)->orWhere('nip',$all_post->name)->first();
+        $data_karyawan = Karyawan::where('nip',$all_post->name)->first();
 
         /*
          * if karyawan not exist
@@ -217,7 +217,7 @@ class AbsenController extends Controller
             Session::flash('msg_error','User tidak terdaftar');
             return redirect(route('absen'));
         }
-
+        Session::flash('userData', $data_karyawan);
         /*
          * get data absensi by date and kayawan id
          */
@@ -242,13 +242,21 @@ class AbsenController extends Controller
 
             $absensi->save();
 
-            Session::flash('msg_success','Sukses, Pengajuan izin sedang dalam proses');
+            Session::flash('msg_success','Sukses, Pengajuan izin sedang dalam proses, ');
             return redirect($callback);
         }else{
 
             /*
              * check data absensi
              */
+            if (!is_null($data_absensi->keterangan) && $all_post->keterangan) {
+                Session::flash('msg_error','Maaf, Anda telah mengajukan ijin hari ini');
+                return redirect(route('absen')); 
+            }
+
+            if ($all_post->keterangan) {
+                $absensi->$date_now;
+            }
 
             /*
              * set data absen for update to db

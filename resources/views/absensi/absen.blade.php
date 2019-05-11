@@ -71,7 +71,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label style="color: #495057" >Masukkan NIP/Nama Anda</label>
+							<label style="color: #495057" >Masukkan NIP</label>
 							<input type="text"  class="form-control" style="border: 1px solid #d3d8de;color: #495057" name="name" required="">
 						</div>
 						<div class="form-group">
