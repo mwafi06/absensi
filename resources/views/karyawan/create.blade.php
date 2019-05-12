@@ -5,6 +5,15 @@
 <section class="main-section">
     <!-- Add Your Content Inside -->
     <div class="content">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div><br />
+        @endif
         <!-- Remove This Before You Start -->
         <div class="panel panel-inverse" data-sortable-id="table-basic-1">
             <!-- begin panel-heading -->

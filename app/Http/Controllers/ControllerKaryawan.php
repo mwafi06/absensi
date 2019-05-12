@@ -41,9 +41,16 @@ class ControllerKaryawan extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'nip'=>'required',
-            'nama'=>'required'
+            'nama'=>'required',
+            'tgl_lhr'=>'required',
+            'asal'=>'required',
+            'j_kel'=>'required',
+            'alamat'=>'required',
+            'no_tlp'=>'required',
+            'status'=>'required',
+            'jabatan_id'=>'required'
         ]);
 
         $karyawan = new Karyawan([
@@ -116,9 +123,16 @@ class ControllerKaryawan extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'nip'=>'required',
-            'nama'=>'required'
+            'nama'=>'required',
+            'tgl_lhr'=>'required',
+            'asal'=>'required',
+            'j_kel'=>'required',
+            'alamat'=>'required',
+            'no_tlp'=>'required',
+            'status'=>'required',
+            'jabatan_id'=>'required'
         ]);
 
         $karyawan = Karyawan::find($id);
