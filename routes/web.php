@@ -13,8 +13,6 @@
 
 Route::get('auths/login','AuthController@login')->name('login');
 Route::post('loginpost','AuthController@loginpost');
-Route::get('auths/register', 'AuthController@register');
-Route::post('registerPost', 'AuthController@registerPost');
 Route::get('logout', 'AuthController@logout');
 
 /*
